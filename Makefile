@@ -1,5 +1,5 @@
 NAME = libft.a
-SRCS = ft_memset.c 
+SRCS = ft_memset.c ft_bzero.c
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 RM = rm -rf
