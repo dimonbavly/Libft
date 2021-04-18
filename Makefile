@@ -2,13 +2,15 @@ NAME = libft.a
 SRCS = ft_memset.c ft_bzero.c
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
-RM = rm -rf
+RM = rm -f
 OBJS = $(SRCS:.c=.o)
 
 all:	$(NAME)
 
-$(NAME):
-	gcc -c $(CFLAGS) $(SRCS) -o $(OBJS)
+%.o:	%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME):	$(OBJS)
 	ar rc libft.a $(OBJS) 
 clean:
 	$(RM) $(OBJS)
