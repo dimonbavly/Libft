@@ -2,11 +2,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
+	char	*tmp;
+
+	tmp = (char *) s;
 	if (!n)
 		return ;
 	while (n)
 	{
-		*s = '\0';
+		*tmp = 0;
 		s++;
 		n--;
 	}
