@@ -1,0 +1,20 @@
+NAME = libfttest
+SRCS = test.c
+CFLAGS = -Wall -Wextra -Werror
+LFLAGS = -L.
+CC = gcc
+RM = rm -rf
+OBJS = $(SRCS:.c=.o)
+
+all:	$(NAME)
+
+$(NAME):
+	gcc -c $(CFLAGS) $(SRCS) -o $(OBJS)
+	gcc $(OBJS) $(CFLAGS) -o $(NAME)  -lc $(LFLAGS) -lft 
+
+clean:
+	RM $(OBJS)
+
+fclean: clean
+	RM libfttest
+re:	clean	all
