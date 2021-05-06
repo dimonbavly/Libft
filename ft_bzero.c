@@ -10,7 +10,8 @@ void	ft_bzero(void *s, size_t n)
 	while (n)
 	{
 		*tmp = 0;
-		s++;
+		tmp++;
 		n--;
 	}
+	return ;
 }
