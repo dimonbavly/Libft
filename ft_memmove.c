@@ -3,18 +3,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char	*d;
 	char	*s;
-	
+
 	if (dest == NULL && src == NULL)
 		return (dest);
 	if (dest < src)
 	{
 		d = (char *)dest;
 		s = (char *)src;
-		while (n)
-		{
+		n++;
+		while (--n)
 			*d++ = *s++;
-			n--;
-		}
 	}
 	else
 	{

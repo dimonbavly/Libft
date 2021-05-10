@@ -1,24 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: srupert <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/09 13:14:20 by srupert           #+#    #+#             */
-/*   Updated: 2021/05/10 20:34:55 by srupert          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
 static int	ft_isspace(int c);
 
 int	ft_atoi(const char *str)
 {
-	int	cnt;
+	int			cnt;
 	long int	result;
-	int	plusminus;
+	int			plusminus;
 
 	plusminus = 1;
 	cnt = 0;
