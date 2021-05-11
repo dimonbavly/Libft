@@ -13,7 +13,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*res = '\0';
 		return (res);
 	}
-	res = malloc(sizeof(*res) * len + 1);
+	res = malloc(sizeof(*res) * (len + 1));
 	if (!res)
 		return (NULL);
 	ft_memcpy(res, s + start, len);
