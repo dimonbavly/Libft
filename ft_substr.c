@@ -5,7 +5,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
 
-	if ((size_t)start >= len)
+	if ((size_t)start >= ft_strlen(s))
 	{
 		res = malloc(sizeof(*res));
 		if (!res)
