@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "libft.h"
 
 static void		ft_free_all(char **dest);
