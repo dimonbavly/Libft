@@ -1,32 +1,33 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t ft_countwords(char *str, char c);
-static size_t ft_split_handler(char *str, char c, char **dest);
+static void		ft_free_all(char **dest);
+static size_t	ft_countwords(const char *str, char c);
+static size_t	ft_split_handler(const char *str, char c, \
+	   	char **dest, size_t cnt);
 
 char	**ft_split(char const *s, char c)
 {
-	
-	char *str;
-	char **res;
+	char	**res;
 
-	str = ft_strtrim(s, &c);
-	if (!str)
+	res = ft_calloc(sizeof(*res), (ft_countwords(s, c) + 1));
+	if (!res)
 		return (NULL);
-	res = malloc(sizeof(*res) * ft_countwords(str, c));
-	if (ft_countwords(str,c) != ft_split_handler(str, c, res))
+	if (!ft_countwords(s, c))
 		return (NULL);
+	if (ft_split_handler(s, c, res, 0) < ft_countwords(s, c))
+	{
+		ft_free_all(res);
+		return (NULL);
+	}
 	return (res);
-
 }
 
-
-static size_t ft_countwords(char *str, char c)
+static size_t	ft_countwords(char const *str, char c)
 {
-	size_t cnt;
-	size_t occ;
+	size_t	cnt;
+	size_t	occ;
 
-	
 	occ = 0;
 	cnt = 0;
 	while (str[cnt])
@@ -38,53 +39,51 @@ static size_t ft_countwords(char *str, char c)
 			cnt++;
 			occ++;
 		}	
-		else 
+		else
 			cnt++;
 	}
 	return (occ);
 }
 
-static size_t ft_split_handler(char *str, char c, char **dest)
+static size_t	ft_split_handler(const char *str, char c, \
+		char **dest, size_t cnt)
 {
-	size_t cnt;
-	size_t occ;
-	size_t start;
-	
-	occ = 1;
-	cnt = 0;
+	size_t	occ;
+	size_t	start;
+
+	start = cnt;
+	occ = 0;
 	while (str[cnt])
 	{
 		if (str[cnt] == c)
-			cnt++;
-		else if (!cnt)
-			start = cnt++;
-		else if (cnt)
-		{
-			if (str[cnt - 1] == c)
-				start = cnt;
-			cnt++;
-		}
-			else if (str[cnt + 1] == c)
-		{
-			str[cnt + 1] = '\0';
-			dest[occ - 1] = ft_strtrim(str + start, &c);
-			if (!dest[occ-1])
-				return (occ);
-			cnt++;
+			start++ && cnt++;
+		else if (str[cnt + 1] == c || str[cnt + 1] == '\0')
+		{	
+			dest[occ] = ft_substr(str + start, 0, cnt + 1 - start);
 			occ++;
-
-		}
-		else if (str[cnt + 1] == '\0')
-		{
-			dest[occ - 1] = ft_strtrim(str + start, &c);
-			if (!dest[occ-1])
-				return (occ);
+			start = cnt + 1;
+			if (str[cnt + 1] == '\0')
+			{
+				dest[occ] = NULL;
+				break ;
+			}
 			cnt++;
-			occ++;
-		}
-
-		else 
+		}	
+		else
 			cnt++;
 	}
 	return (occ);
+}
+
+static void	ft_free_all(char **dest)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (dest[cnt])
+	{
+		free(dest[cnt]);
+		dest[cnt++] = NULL;
+	}
+	free(dest);
 }
