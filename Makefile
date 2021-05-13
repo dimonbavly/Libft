@@ -12,7 +12,7 @@ all:	$(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS)
-	ar rc libft.a $(OBJS) 
+	ar rcs libft.a $(OBJS) 
 clean:
 	$(RM) $(OBJS)
 fclean:	clean
