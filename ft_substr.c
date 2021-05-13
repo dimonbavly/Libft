@@ -20,4 +20,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	res[len] = '\0';
 	return (res);
 }
-
