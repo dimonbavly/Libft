@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 static void		ft_free_all(char **dest);
 static size_t	ft_countwords(const char *str, char c);
@@ -14,7 +13,10 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	if (!ft_countwords(s, c))
-		return (NULL);
+	{
+		res[0] = NULL;
+		return (res);
+	}
 	if (ft_split_handler(s, c, res, 0) < ft_countwords(s, c))
 	{
 		ft_free_all(res);
@@ -56,17 +58,17 @@ static size_t	ft_split_handler(const char *str, char c, \
 	while (str[cnt])
 	{
 		if (str[cnt] == c)
-			start++ && cnt++;
+		{
+			start++;
+			cnt++;
+		}
 		else if (str[cnt + 1] == c || str[cnt + 1] == '\0')
 		{	
 			dest[occ] = ft_substr(str + start, 0, cnt + 1 - start);
 			occ++;
 			start = cnt + 1;
 			if (str[cnt + 1] == '\0')
-			{
-				dest[occ] = NULL;
 				break ;
-			}
 			cnt++;
 		}	
 		else
