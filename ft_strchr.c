@@ -5,7 +5,7 @@ char	*ft_strchr(const char *s, int c)
 	size_t	cnt;
 
 	cnt = 0;
-	while (s[cnt] != c)
+	while (s[cnt] != (char)c)
 	{
 		if (s[cnt] == '\0')
 			return (NULL);
