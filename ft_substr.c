@@ -4,8 +4,10 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
+	size_t len_of_s;
 
-	if ((size_t)start >= ft_strlen(s))
+	len_of_s = ft_strlen(s);
+	if ((size_t)start >= len_of_s)
 	{
 		res = malloc(sizeof(*res));
 		if (!res)
@@ -13,6 +15,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*res = '\0';
 		return (res);
 	}
+	if (len > len_of_s - start)
+		len = len_of_s - start;
 	res = malloc(sizeof(*res) * (len + 1));
 	if (!res)
 		return (NULL);
