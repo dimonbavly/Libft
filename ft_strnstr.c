@@ -15,12 +15,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	else if (*haystack == '\0')
 		return (NULL);
 	cnt = 0;
-	while ((cnt + needlesize <= haystacksize) && ft_strncmp(&haystack[cnt],needle,needlesize) && (cnt + needlesize <= len))
+	while ((cnt + needlesize <= haystacksize) && \
+		   	ft_strncmp(&haystack[cnt], needle needlesize) && \
+		   	(cnt + needlesize <= len))
 	{
 		cnt++;
 	}
 	if ((cnt + needlesize > haystacksize) || (cnt + needlesize > len))
 		return (NULL);
-	return ((char *)haystack  + cnt);
-	
+	return ((char *)haystack + cnt);
 }
