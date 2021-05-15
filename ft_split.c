@@ -10,8 +10,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**res;
 
-	if (!s)
-		return (NULL);
 	res = ft_calloc(sizeof(*res), (ft_countwords(s, c) + 1));
 	if (!res)
 		return (NULL);
