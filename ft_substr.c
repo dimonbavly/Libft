@@ -4,7 +4,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
-	size_t len_of_s;
+	size_t	len_of_s;
 
 	len_of_s = ft_strlen(s);
 	if ((size_t)start >= len_of_s)
