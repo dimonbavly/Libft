@@ -14,7 +14,18 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 	ar rcs libft.a $(OBJS) 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUSOBJS)
 fclean:	clean
 	$(RM) $(NAME)
 re:	fclean	all
+
+#==========================================
+#=================BONUS====================
+#==========================================
+
+BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c
+
+BONUSOBJS = $(BONUS:%.c=%.o)
+
+bonus:	$(OBJS) $(BONUSOBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUSOBJS)
