@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -8,6 +9,6 @@ t_list	*ft_lstnew(void *content)
 	if (result == NULL)
 		return (NULL);
 	(*result).content = content;
-	(*result).new = NULL;
+	(*result).next = NULL;
 	return (result);
 }
