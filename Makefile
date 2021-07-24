@@ -23,7 +23,7 @@ re:	fclean	all
 #=================BONUS====================
 #==========================================
 
-BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c
+BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstlast.c ft_lstclear.c
 
 BONUSOBJS = $(BONUS:%.c=%.o)
 
