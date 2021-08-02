@@ -14,7 +14,7 @@ void	ft_dlclearthead(t_dllist **dllst, void (*del) (void*))
 		del(current->content);
 		*dllst = current->prev;
 		free(current);
-		current = *lst;
+		current = *dllst;
 	}
 	return ;
 }
