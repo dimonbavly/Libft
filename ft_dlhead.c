@@ -6,7 +6,7 @@ t_dllist	*ft_dlhead(t_dllist *dllst)
 
 	current = dllst;
 	if (!dllst)
-		retur (NULL);
+		return (NULL);
 	else
 	{
 		while (current && current->prev)
