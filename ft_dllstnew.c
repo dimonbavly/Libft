@@ -3,7 +3,7 @@
 
 t_dllist	*ft_dllstnew(void *content)
 {
-	t_list	*result;
+	t_dllist	*result;
 
 	result = malloc (sizeof(t_dllist));
 	if (result == NULL)
