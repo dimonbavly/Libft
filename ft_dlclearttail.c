@@ -7,6 +7,8 @@ void	ft_dlclearttail(t_dllist **dllst, void (*del) (void*))
 
 	if (!dllst)
 		return ;
+	if (!((*dllst)->next))
+		return ;
 	(*dllst) = (*dllst)->next;
 	current = *dllst;
 	while (current)
