@@ -14,7 +14,7 @@ void	ft_dlinsertafter(t_dllist **dllst, t_dllist *new)
 	{
 		new->next = (*dllst)->next;
 		new->prev = *dllst;
-		if ((*dllst->next))
+		if ((*dllst)->next)
 		{
 			(*dllst)->next->prev = new;
 			(*dllst)->next = new;
