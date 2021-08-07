@@ -14,8 +14,11 @@ void	ft_dlinsertbefore(t_dllist **dllst, t_dllist *new)
 	{
 		new->prev = (*dllst)->prev;
 		new->next = *dllst;
-		(*dllst)->prev->next = new;
-		(*dllst)->prev = new;
+		if ((*dllst)->prev)
+		{
+			(*dllst)->prev->next = new;
+			(*dllst)->prev = new;
+		}
 	}
 	return ;
 }
