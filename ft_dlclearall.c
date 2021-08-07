@@ -7,7 +7,10 @@ void	ft_dlclearall(t_dllist **dllst, void (*del) (void*))
 		return ;
 	ft_dlclearthead(dllst, del);
 	ft_dlclearttail(dllst, del);
-	del((*dllst)->content);
+	if (!(*dllst))
+		return ;
+	if ((*dllst)->content)
+		del((*dllst)->content);
 	free(*dllst);
 	*dllst = NULL;
 	return ;

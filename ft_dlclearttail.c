@@ -4,19 +4,26 @@
 void	ft_dlclearttail(t_dllist **dllst, void (*del) (void*))
 {
 	t_dllist	*current;
+	t_dllist	*tmp;
 
+	tmp = *dllst;
 	if (!dllst)
 		return ;
-	if (!((*dllst)->next))
+	if (!tmp)
 		return ;
-	(*dllst) = (*dllst)->next;
-	current = *dllst;
-	while (current)
+	if (!(tmp->next))
+		return ;
+	tmp = tmp->next;
+	current = tmp;
+	while (1)
 	{
-		del(current->content);
-		*dllst = current->next;
+		if (current->content)
+			del(current->content);
+		if (!(current->next))
+			break ;
+		tmp = current->next;
 		free(current);
-		current = *dllst;
+		current = tmp;
 	}
 	return ;
 }

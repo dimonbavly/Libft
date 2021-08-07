@@ -4,19 +4,26 @@
 void	ft_dlclearthead(t_dllist **dllst, void (*del) (void*))
 {
 	t_dllist	*current;
+	t_dllist	*tmp;
 
+	tmp = *dllst;
 	if (!dllst)
 		return ;
-	if (!((*dllst)->prev))
+	if (!(tmp))
 		return ;
-	(*dllst) = (*dllst)->prev;
-	current = *dllst;
-	while (current)
+	if (!(tmp->prev))
+		return ;
+	tmp = tmp->prev;
+	current = tmp;
+	while (1)
 	{
-		del(current->content);
-		*dllst = current->prev;
+		if (current->content)
+			del(current->content);
+		if (!current->prev)
+			break ;
+		tmp = current->prev;
 		free(current);
-		current = *dllst;
+		current = tmp;
 	}
 	return ;
 }
