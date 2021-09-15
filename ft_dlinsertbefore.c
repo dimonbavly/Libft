@@ -7,7 +7,6 @@ void	ft_dlinsertbefore(t_dllist **dllst, t_dllist *new)
 	if (*dllst == NULL)
 	{
 		new->next = NULL;
-		new->prev = NULL;
 		*dllst = new;
 	}
 	else
@@ -19,6 +18,8 @@ void	ft_dlinsertbefore(t_dllist **dllst, t_dllist *new)
 			(*dllst)->prev->next = new;
 			(*dllst)->prev = new;
 		}
+		else
+			(*dllst)->prev = new;
 	}
 	return ;
 }
