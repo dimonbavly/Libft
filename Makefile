@@ -14,7 +14,7 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 	ar rcs libft.a $(OBJS) 
 clean:
-	$(RM) $(OBJS) $(BONUSOBJS)
+	$(RM) $(OBJS) $(BONUSOBJS) $(MYLIBFT_SRC)
 fclean:	clean
 	$(RM) $(NAME)
 re:	fclean	all
