@@ -41,7 +41,7 @@ bonus:	$(OBJS) $(BONUSOBJS)
 
 MYLIBFT_SRCS = ft_dlclearall.c ft_dlclearthead.c ft_dlclearttail.c ft_dlhead.c\
 			   ft_dltail.c ft_dlinsertafter.c ft_dlinsertbefore.c\
-			   ft_dllstdelone.c ft_dllstnew.c ft_dllstsize.c ft_abc.c
+			   ft_dllstdelone.c ft_dllstnew.c ft_dllstsize.c ft_abs.c
 
 MYLIBFT_OBJS = $(MYLIBFT_SRCS:%.c=%.o)
 
