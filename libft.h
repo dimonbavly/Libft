@@ -71,5 +71,6 @@ void		ft_dllstdelone(t_dllist *dllst, void (*del) (void*));
 t_dllist	*ft_dllstnew(void *content);
 t_dllist	*ft_dltail(t_dllist *dllst);
 int			ft_dllstsize(t_dllist *dllst);
+int			ft_abs(int num);
 
 #endif
